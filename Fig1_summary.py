@@ -34,14 +34,6 @@ sc.pl.stacked_violin(ad, groupby='label',                     var_names= good_ge
                      swap_axes = True,dendrogram = False,figsize=(10,6.5),\
                     linewidth = 0.15, palette=ad.uns['label_colors'])
 
-plt.figure()
-cluster_seq = ad.obs['label'].cat.categories
-ad_color = dict(zip(ad.obs['label'].cat.categories, ad.uns['label_colors']))
-ax = plt.subplot()
-for i in range(0,len(ad.obs['label'].cat.categories)):
-    ax.plot([i,i+1],[2,2],linewidth = 4, color = ad_color[cluster_seq[i]])
-    print(cluster_seq[i])
-
 #plot gene expression
 matplotlib.rcParams.update({'font.size': 14})
 fig = plt.figure(figsize=(15,5))
